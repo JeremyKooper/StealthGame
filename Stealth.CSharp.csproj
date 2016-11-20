@@ -67,5 +67,9 @@
     <Compile Include="Assets\Characters\NPC\Scripts\NPCPathing.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MovementController.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
+    <None Include="Assets\Day-Night Skyboxes\readme.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

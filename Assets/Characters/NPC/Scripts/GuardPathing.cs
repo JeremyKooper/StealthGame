@@ -23,6 +23,7 @@ public class GuardPathing : MonoBehaviour
     {
         navAgent.SetDestination(destinationPoint);
 
+        //only worry about being close to the point by measuring x and y axis.
         if(Mathf.Abs(destinationPoint.x - transform.position.x) < 0.5f && Mathf.Abs(destinationPoint.z - transform.position.z) < 0.5f)
         {
             SetDestinationToNext();
