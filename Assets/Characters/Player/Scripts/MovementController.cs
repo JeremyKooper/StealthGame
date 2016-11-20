@@ -12,12 +12,17 @@ public class MovementController : MonoBehaviour
 
     void Awake()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        setCursorLock(true);
     }
 
 	void Update ()
     {
+        //toggle cursor lock
+        if(Input.GetKeyUp(KeyCode.Tab))
+            setCursorLock(Cursor.visible);
+        if(Cursor.visible)
+            return;
+
         //handle look position
         Vector2 mouseIn = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         mouseIn *= cameraLookSpeed;
@@ -45,5 +50,19 @@ public class MovementController : MonoBehaviour
         Vector3 movementV = new Vector3(horz * movementSpeed, 0, vert * movementSpeed);
         movementV = characterController.transform.rotation * movementV; //rotate movement vector by camera direction
         characterController.SimpleMove(movementV);
+    }
+
+    void setCursorLock(bool locked)
+    {
+        if(locked)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
